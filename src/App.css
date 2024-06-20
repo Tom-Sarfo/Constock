@@ -1,10 +1,29 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: center; */
 }
 
+.layout{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 65px;
+}
+
+.topNavbar{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
+
+}
+
+.sideNavigation {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 14;
+}
 /* use this to create a spinning loader */
 
 /* @keyframes logo-spin {
