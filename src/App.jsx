@@ -1,12 +1,12 @@
 import "./App.css";
 import Layout from "./Layout";
+import { theme } from "./Utils/Theme";
+import { ThemeProvider } from "@mui/material/styles";
 
-function App() {
+export default function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Layout />
-    </>
+    </ThemeProvider>
   );
 }
-
-export default App;
