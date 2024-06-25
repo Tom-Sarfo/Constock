@@ -7,3 +7,4 @@ export const WalletCard = styled(Card)(({ theme }) => ({
   height: 87,
   width: 241,
 }));
+

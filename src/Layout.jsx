@@ -1,6 +1,6 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { WalletCard } from "./Components/WalletCard";
-import { SmallWhiteFont } from "./Components/SmallWhiteFont";
+import { WhiteTypography } from "./Components/WhiteTypography";
 
 export default function Layout() {
   return (
@@ -20,11 +20,6 @@ export default function Layout() {
         }}
         className="sideNavigation"
       >
-        <WalletCard>
-          <SmallWhiteFont style={{padding: "0.8rem" }} small>
-            Wallet Balance
-          </SmallWhiteFont>
-        </WalletCard>
       </Box>
       <Box
         sx={{ borderBottom: 1, borderColor: "border" }}
