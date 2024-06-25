@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { WalletCard } from "./Components/WalletCard";
-import { WhiteTypography } from "./Components/WhiteTypography";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWallet } from "@fortawesome/free-solid-svg-icons";
 
 export default function Layout() {
   return (
@@ -20,6 +20,7 @@ export default function Layout() {
         }}
         className="sideNavigation"
       >
+        <FontAwesomeIcon icon={faWallet} />
       </Box>
       <Box
         sx={{ borderBottom: 1, borderColor: "border" }}
