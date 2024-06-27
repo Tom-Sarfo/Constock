@@ -14,7 +14,7 @@ export default function Layout() {
         sx={{
           borderRight: 1,
           borderColor: "border", //make this value reusable
-          padding: "0.8rem", //make this value reusable
+          paddingTop: "0.8rem",
           borderRadius: "5px", //make this value reusable
         }}
         className="sideNavigation"
