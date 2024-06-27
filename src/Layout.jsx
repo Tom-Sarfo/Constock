@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWallet } from "@fortawesome/free-solid-svg-icons";
+import SideNavigation from "./Layouts/SideNavigation";
 
 export default function Layout() {
   return (
@@ -15,12 +14,12 @@ export default function Layout() {
         sx={{
           borderRight: 1,
           borderColor: "border", //make this value reusable
-          padding: "0.8rem", //make this value reusable
+          paddingTop: "0.8rem",
           borderRadius: "5px", //make this value reusable
         }}
         className="sideNavigation"
       >
-        <FontAwesomeIcon icon={faWallet} />
+        <SideNavigation />
       </Box>
       <Box
         sx={{ borderBottom: 1, borderColor: "border" }}
