@@ -7,7 +7,7 @@
   grid-auto-rows: repeat(7, 1fr);
   grid-template-areas:
     "one one one one one one one"
-    "two three three three three five five"
+    "two four four four four five five"
     "two four four four four five five"
     "two four four four four five five";
 }
@@ -19,9 +19,7 @@
   grid-area: two;
   height: 93.7vh;
 }
-.watchList {
-  grid-area: three;
-}
+
 .mainBox {
   grid-area: four;
 }

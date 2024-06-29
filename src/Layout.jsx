@@ -14,19 +14,13 @@ export default function Layout() {
       <Box
         sx={{
           borderRight: 1,
-          borderColor: "border", //make this value reusable
-          padding: "0.8rem", //make this value reusable
-          borderRadius: "5px", //make this value reusable
+          borderColor: "border",
+          padding: "0.8rem",
+          borderRadius: "5px",
         }}
         className="sideNavigation"
       >
         <FontAwesomeIcon icon={faWallet} />
-      </Box>
-      <Box
-        sx={{ borderBottom: 1, borderColor: "border" }}
-        className="watchList"
-      >
-        Watch list box goes here...
       </Box>
       <Box className="mainBox">Main box goes here...</Box>
       <Box sx={{ borderLeft: 1, borderColor: "border" }} className="asideBox">
