@@ -13,7 +13,6 @@ function MenuCard({ menuTitle, icon, styles, active, onClick }) {
       style={{
         display: "flex",
         alignItems: "center",
-       
       }}
       onClick={onClick}
     >
@@ -22,7 +21,10 @@ function MenuCard({ menuTitle, icon, styles, active, onClick }) {
         sx={{
           display: "flex",
           alignItems: "baseline",
-          "&:hover": { height: "100%", width: "100%" },
+          "&:hover": {
+            paddingRight: "auto",
+            transition: "0.3s ease",
+          },
         }}
       >
         <ListItemIcon>
@@ -40,7 +42,6 @@ MenuCard.propTypes = {
   styles: PropTypes.object,
   active: PropTypes.bool.isRequired,
   onClick: PropTypes,
-
 };
 
 export default MenuCard;

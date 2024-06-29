@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Container from "@mui/material/Container";
 import { WhiteTypography } from "../Components/Styled";
 import { WalletCard } from "../Components/Styled";
@@ -13,6 +14,14 @@ import Box from "@mui/material/Box";
 import MenuCard from "../Components/MenuCard";
 
 export default function SideNavigation() {
+  // State to track the active menu
+  const [activeMenu, setActiveMenu] = useState("Dashboard");
+
+  // Handler to set the active menu
+  const handleMenuClick = (menuName) => {
+    setActiveMenu(menuName);
+  };
+
   return (
     <Container>
       <Box
@@ -43,7 +52,7 @@ export default function SideNavigation() {
             size="lg"
           />
         </WalletCard>
-      </Box>
+      </Box> 
       <Box
         sx={{
           borderBottom: 1,
@@ -52,14 +61,23 @@ export default function SideNavigation() {
           paddingTop: "20px",
         }}
       >
-        <MenuCard menuTitle="Dashboard" icon={faHome} active={false} />
-        <MenuCard menuTitle="Wallet" icon={faWallet} active={true} />
+        <MenuCard
+          menuTitle="Dashboard"
+          icon={faHome}
+          active={activeMenu === "Dashboard"}
+          onClick={() => handleMenuClick("Dashboard")}
+        />
+        <MenuCard
+          menuTitle="Wallet"
+          icon={faWallet}
+          active={activeMenu === "Wallet"}
+          onClick={() => handleMenuClick("Wallet")}
+        />
         <MenuCard
           menuTitle="Constock Market"
           icon={faChartSimple}
-          name="constock_market"
-          active={false}
-          onClick={(e) => console.log(e.target.innerText)}
+          active={activeMenu === "Constock Market"}
+          onClick={() => handleMenuClick("Constock Market")}
         />
       </Box>
       <Box
@@ -73,11 +91,17 @@ export default function SideNavigation() {
         <MenuCard
           menuTitle="Float Constock"
           icon={faSackDollar}
-          active={false}
+          active={activeMenu === "Float Constock"}
+          onClick={() => handleMenuClick("Float Constock")}
         />
       </Box>
       <Box sx={{ paddingTop: "20px" }}>
-        <MenuCard menuTitle="Setting" icon={faGear} active={false} />
+        <MenuCard
+          menuTitle="Setting"
+          icon={faGear}
+          active={activeMenu === "Setting"}
+          onClick={() => handleMenuClick("Setting")}
+        />
       </Box>
     </Container>
   );
