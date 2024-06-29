@@ -27,3 +27,11 @@ export const WhiteTypography = styled(Typography, {
   fontSize: large ? 26 : medium ? 22 : 16,
   fontWeight: "bold",
 }));
+
+export const Title = styled("div")(({ theme }) => ({
+  width: '186px',
+  height: '32',
+  color: "#AEBACA",
+  // fontSize: large ? 26 : medium ? 22 : 16, 
+  fontWeight: "regular",
+}));
