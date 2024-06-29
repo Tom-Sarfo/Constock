@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import SideNavigation from "./Layouts/SideNavigation";
+import { Title } from "./Components/Styled";
 
 export default function Layout() {
   return (
@@ -21,13 +22,8 @@ export default function Layout() {
       >
         <SideNavigation />
       </Box>
-      <Box
-        sx={{ borderBottom: 1, borderColor: "border" }}
-        className="watchList"
-      >
-        Watch list box goes here...
-      </Box>
-      <Box className="mainBox">Main box goes here...</Box>
+
+      <Box className="mainBox" sx={{padding: '1.2rem'}}><Title label="Watch list"/></Box>
       <Box sx={{ borderLeft: 1, borderColor: "border" }} className="asideBox">
         Aside box goes here...
       </Box>

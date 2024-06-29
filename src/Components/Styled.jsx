@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import { Chip } from "@mui/material";
 
 export const WalletCard = styled(Card)(({ theme }) => ({
   display: "flex",
@@ -12,9 +13,9 @@ export const WalletCard = styled(Card)(({ theme }) => ({
 }));
 
 export const ActiveBar = styled("div", {
-    shouldForwardProp: (prop) => prop !== "active",
-  })(({ active, theme }) => ({
-  display: !active && 'none',
+  shouldForwardProp: (prop) => prop !== "active",
+})(({ active, theme }) => ({
+  display: !active && "none",
   backgroundColor: theme.palette.primary.main,
   height: 60,
   width: 5,
@@ -28,10 +29,12 @@ export const WhiteTypography = styled(Typography, {
   fontWeight: "bold",
 }));
 
-export const Title = styled("div")(({ theme }) => ({
-  width: '186px',
-  height: '32',
-  color: "#AEBACA",
-  // fontSize: large ? 26 : medium ? 22 : 16, 
-  fontWeight: "regular",
+export const Title = styled(Chip, {
+  shouldForwardProp: (prop) => prop !== "medium" && prop !== "large",
+})(({ medium, large }) => ({
+  borderRadius: "6px",
+  backgroundColor: "#F5F5F5",
+  fontWeight: "bold",
+  padding: large ? "0.6rem" : medium ? "0.5rem" : "0.4rem",
+  fontSize: large ? 26 : medium ? 22 : 16,
 }));
