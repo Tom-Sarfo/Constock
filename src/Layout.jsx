@@ -1,8 +1,15 @@
-import { Box } from "@mui/material";
 import SideNavigation from "./Layouts/SideNavigation";
 import { Title } from "./Components/Styled";
+import Box from "@mui/material/Box";
+import WatchList from "./Layouts/WatchList";
+import { useRef, useState } from "react";
+import { scrollToWidth } from "./Utils/Constant";
+import ArrowScroll from "./Components/ArrowScroll";
 
 export default function Layout() {
+  const [scrollToPosition, setScrollToPosition] = useState(0);
+  const WatchListContainerRef = useRef();
+
   return (
     <div className="layout">
       <Box
@@ -14,16 +21,45 @@ export default function Layout() {
       <Box
         sx={{
           borderRight: 1,
-          borderColor: "border", //make this value reusable
+          borderColor: "border",
           paddingTop: "0.8rem",
-          borderRadius: "5px", //make this value reusable
+          borderRadius: "5px",
         }}
         className="sideNavigation"
       >
         <SideNavigation />
       </Box>
 
-      <Box className="mainBox" sx={{padding: '1.2rem'}}><Title label="Watch list"/></Box>
+      <Box
+        className="mainBox"
+        sx={{
+          padding: "1.2rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+        }}
+      >
+        <>
+          <div>
+            <Title label="Watch list" />
+          </div>
+
+          <WatchList
+            style={{ position: "relative" }}
+            innerRef={WatchListContainerRef}
+          />
+          <ArrowScroll
+            scrollHandler={() =>
+              scrollToWidth(
+                100,
+                scrollToPosition,
+                setScrollToPosition,
+                WatchListContainerRef
+              )
+            }
+          />
+        </>
+      </Box>
       <Box sx={{ borderLeft: 1, borderColor: "border" }} className="asideBox">
         Aside box goes here...
       </Box>

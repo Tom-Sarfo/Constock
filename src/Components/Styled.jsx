@@ -38,3 +38,18 @@ export const Title = styled(Chip, {
   padding: large ? "0.6rem" : medium ? "0.5rem" : "0.4rem",
   fontSize: large ? 26 : medium ? 22 : 16,
 }));
+
+export const WatchListCardContainer = styled("div")(({ theme }) => ({
+  // backgroundColor: theme.palette.primary.main,
+  border: `1px solid ${theme.palette.border.main}`,
+  borderRadius: "5px",
+  height: 211,
+  width: 246,
+  "&:hover": {
+    cursor: "pointer",
+    backgroundColor: "#F5F5F5",
+    opacity: 0.6,
+    color: "#000000",
+  },
+}));
+
