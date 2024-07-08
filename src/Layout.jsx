@@ -1,8 +1,15 @@
-import { Box } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWallet } from "@fortawesome/free-solid-svg-icons";
+import SideNavigation from "./Layouts/SideNavigation";
+import { Title } from "./Components/Styled";
+import Box from "@mui/material/Box";
+import WatchList from "./Layouts/WatchList";
+import { useRef, useState } from "react";
+import { scrollToWidth } from "./Utils/Constant";
+import ArrowScroll from "./Components/ArrowScroll";
 
 export default function Layout() {
+  const [scrollToPosition, setScrollToPosition] = useState(0);
+  const WatchListContainerRef = useRef();
+
   return (
     <div className="layout">
       <Box
@@ -15,14 +22,44 @@ export default function Layout() {
         sx={{
           borderRight: 1,
           borderColor: "border",
-          padding: "0.8rem",
+          paddingTop: "0.8rem",
           borderRadius: "5px",
         }}
         className="sideNavigation"
       >
-        <FontAwesomeIcon icon={faWallet} />
+        <SideNavigation />
       </Box>
-      <Box className="mainBox">Main box goes here...</Box>
+
+      <Box
+        className="mainBox"
+        sx={{
+          padding: "1.2rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+        }}
+      >
+        <>
+          <div>
+            <Title label="Watch list" />
+          </div>
+
+          <WatchList
+            style={{ position: "relative" }}
+            innerRef={WatchListContainerRef}
+          />
+          <ArrowScroll
+            scrollHandler={() =>
+              scrollToWidth(
+                100,
+                scrollToPosition,
+                setScrollToPosition,
+                WatchListContainerRef
+              )
+            }
+          />
+        </>
+      </Box>
       <Box sx={{ borderLeft: 1, borderColor: "border" }} className="asideBox">
         Aside box goes here...
       </Box>

@@ -20,7 +20,9 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
+    "embla-carousel-react": "^8.1.5",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1"
   },

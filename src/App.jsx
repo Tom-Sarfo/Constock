@@ -1,7 +1,8 @@
 import "./App.css";
 import Layout from "./Layout";
-import { theme } from "./Utils/Theme";
+
 import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./Utils/Theme";
 
 export default function App() {
   return (
