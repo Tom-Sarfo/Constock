@@ -5,6 +5,7 @@ import WatchList from "./Layouts/WatchList";
 import { useRef, useState } from "react";
 import { scrollToWidth } from "./Utils/Constant";
 import ArrowScroll from "./Components/ArrowScroll";
+import TopNavigation from "./Layouts/TopNavigation";
 
 export default function Layout() {
   const [scrollToPosition, setScrollToPosition] = useState(0);
@@ -16,7 +17,10 @@ export default function Layout() {
         sx={{ borderBottom: 1, borderColor: "border" }}
         className="topNavbar"
       >
-        Top navigation goes here...
+        <TopNavigation
+        badgeContent={17} 
+        userName="Kabute Grace" 
+        userAvatar="/src/assets/I.jpeg" />
       </Box>
       <Box
         sx={{
