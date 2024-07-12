@@ -31,11 +31,11 @@ const TopNavigation = ({badgeContent, userName, userAvatar}) =>{
               color: "#707175"
             }}
           >
-            <Badge badgeContent={badgeContent} sx={{ }} color="#707175">
+            <Badge badgeContent={badgeContent} color="#707175">
               <NotificationsIcon sx={{ color: "#707175"}}/>
             </Badge>
           </IconButton>
-          <Box sx={{display: 'flex', alignItems: "center", justifyContent: "space-around", paddingRight: "5px"}}>
+          <Box sx={{display: 'flex', alignItems: "center", justifyContent: "space-around", paddingRight: "5px", color: '#707175'}}>
             <IconButton>
               <Avatar
               alt={userName}
