@@ -20,7 +20,7 @@ export default function Layout() {
         <TopNavigation
         badgeContent={17} 
         userName="Kabute Grace" 
-        userAvatar="/src/assets/I.jpeg" />
+        userAvatar="" />
       </Box>
       <Box
         sx={{

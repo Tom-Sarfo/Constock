@@ -10,7 +10,7 @@ const TopNavigation = ({badgeContent, userName, userAvatar}) =>{
 
     <NavContainer>
       <Box sx={{display: 'flex', alignItems: "center"}}>
-      <img src="/src/assets/logo.jpg" alt="logo" width= "40" height= "40" style={{ borderRadius: "50%", marginRight: "10px"}}/>
+      <img src="/src/assets/logo.jpg" alt="logo" width= "40" height= "40" style={{ borderRadius: "50%", padding: "0.8rem"}}/>
           <WhiteTypography
           sx={{ 
             fontWeight: '700px', 
@@ -54,13 +54,12 @@ const TopNavigation = ({badgeContent, userName, userAvatar}) =>{
 
 TopNavigation.propTypes = {
   badgeContent: PropTypes.number,
-  userName: PropTypes.string,
+  userName: PropTypes.string.isRequired,
   userAvatar: PropTypes.string,
 };
 
 TopNavigation.defaultProps = {
   badgeContent: 0,
-  userName: 'User',
   userAvatar: '',
 };
 
