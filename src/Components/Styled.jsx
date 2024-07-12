@@ -40,7 +40,6 @@ export const Title = styled(Chip, {
 }));
 
 export const WatchListCardContainer = styled("div")(({ theme }) => ({
-  // backgroundColor: theme.palette.primary.main,
   border: `1px solid ${theme.palette.border.main}`,
   borderRadius: "5px",
   height: 211,
@@ -52,4 +51,8 @@ export const WatchListCardContainer = styled("div")(({ theme }) => ({
     color: "#000000",
   },
 }));
+
+
+
+
 
