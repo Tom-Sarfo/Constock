@@ -20,7 +20,7 @@ const TopNavigation = ({badgeContent, userName, userAvatar}) =>{
             Constock
           </WhiteTypography>
         </Box>
-        <Box sx={{display: "flex", gap:"3em", justifyContent: "space-between"}}>
+        <Box sx={{display: "flex", gap:"5em", justifyContent: "space-between"}}>
           <IconButton
             size="large"
             aria-label={`show ${badgeContent} new notifications`}
@@ -43,7 +43,7 @@ const TopNavigation = ({badgeContent, userName, userAvatar}) =>{
               sx={{ width: 32, height: 32}}
               ></Avatar>
             </IconButton>
-            <Typography>
+            <Typography sx={{padding: "0.8rem"}}>
             {userName}
             </Typography>
             </Box>
