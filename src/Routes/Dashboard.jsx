@@ -1,10 +1,13 @@
 import ArrowScroll from "../Components/ArrowScroll";
 import { useRef, useState } from "react";
 import { scrollToWidth } from "../Utils/Constant";
-import { Title } from "../Components/Styled";
+import { Status, Title } from "../Components/Styled";
 import WatchList from "../Components/WatchList";
 import TableComponent from "../Components/TableComponent";
 import AssetAvatar from "../Components/AssetAvatar";
+import Button from "@mui/material/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const columns = [
   {
@@ -19,20 +22,51 @@ const columns = [
       />
     ),
   },
-  { id: "price", label: "Price", minWidth: 100 },
+  { id: "price", label: "Price", minWidth: 100, align: "center" },
   {
     id: "priceChange",
     label: "Price Change",
     minWidth: 170,
-    align: "right",
-    format: (value) => `${value}%`,
+    align: "center",
+    format: (value) => (
+      <Status
+        statusColor={value.rate ? "#37AEB1" : "#AD2828"}
+        rateColor={
+          value.rate ? "rgb(55, 174, 177, 0.28)" : "rgb(173, 40, 40, 0.22)"
+        }
+        icon={
+          value.rate ? (
+            <FontAwesomeIcon icon={faArrowUp} color="#37AEB1" />
+          ) : (
+            <FontAwesomeIcon icon={faArrowDown} color="#AD2828" />
+          )
+        }
+        label={`${value.percentage}%`}
+      />
+    ),
+  },
+  {
+    id: "action",
+    label: "Action",
+    minWidth: 100,
+    format: (value) => (
+      <Button
+        variant="outlined"
+        size="small"
+        color="primary"
+        sx={{
+          textTransform: "capitalize",
+          "&:hover": {
+            bgcolor: "#7655FA",
+            color: "#FFFFFF",
+          },
+        }}
+      >
+        {value}
+      </Button>
+    ),
   },
 ];
-
-// function createData(name, code, population, size) {
-//   const density = population / size;
-//   return { name, code, population, size, density };
-// }
 
 const rows = [
   {
@@ -43,7 +77,8 @@ const rows = [
         "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
     },
     price: "$25",
-    priceChange: 1.6,
+    priceChange: { rate: true, percentage: 1.6 },
+    action: "sell",
   },
   {
     asset: {
@@ -53,7 +88,8 @@ const rows = [
         "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
     },
     price: "$25",
-    priceChange: 1.6,
+    priceChange: { rate: false, percentage: 1.6 },
+    action: "sell",
   },
   {
     asset: {
@@ -63,7 +99,8 @@ const rows = [
         "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
     },
     price: "$25",
-    priceChange: 1.6,
+    priceChange: { rate: true, percentage: 1.6 },
+    action: "sell",
   },
   {
     asset: {
@@ -73,7 +110,8 @@ const rows = [
         "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
     },
     price: "$25",
-    priceChange: 1.6,
+    priceChange: { rate: false, percentage: 1.6 },
+    action: "sell",
   },
   {
     asset: {
@@ -83,7 +121,8 @@ const rows = [
         "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
     },
     price: "$25",
-    priceChange: 1.6,
+    priceChange: { rate: true, percentage: 1.6 },
+    action: "sell",
   },
   {
     asset: {
@@ -93,7 +132,8 @@ const rows = [
         "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
     },
     price: "$25",
-    priceChange: 1.6,
+    priceChange: { rate: true, percentage: 1.6 },
+    action: "sell",
   },
 ];
 
@@ -106,7 +146,7 @@ function Dashboard() {
         padding: "1.2rem",
         display: "flex",
         flexDirection: "column",
-        gap: "40px",
+        gap: "20px",
       }}
     >
       <div>
@@ -126,7 +166,10 @@ function Dashboard() {
           )
         }
       />
-      <TableComponent columns={columns} rows={rows} />
+
+      <div style={{ marginTop: "60px" }}>
+        <TableComponent columns={columns} rows={rows} />
+      </div>
     </div>
   );
 }

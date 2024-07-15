@@ -39,6 +39,27 @@ export const Title = styled(Chip, {
   fontSize: large ? 26 : medium ? 22 : 16,
 }));
 
+export const Status = styled(Chip, {
+  shouldForwardProp: (prop) =>
+    prop !== "outline" &&
+    prop !== "squared" &&
+    prop !== "rateColor" &&
+    prop !== "statusColor" &&
+    prop !== "small" &&
+    prop !== "large",
+})(({ outline, squared, rateColor, statusColor, small, large }) => ({
+  backgroundColor: outline ? "" : rateColor ? rateColor : statusColor,
+  fontWeight: "bold",
+  borderRadius: squared ? 5 : "",
+  borderColor: rateColor && statusColor,
+  border: rateColor && `2px solid ${statusColor}`,
+  padding: large ? "0.6rem" : small ? "0.2rem" : "0.4rem",
+  fontSize: large ? 26 : small ? 8 : 16,
+  color: statusColor ? statusColor : "#FFFFFF",
+  width: small && 66,
+  height: small && 21,
+}));
+
 export const WatchListCardContainer = styled("div")(({ theme }) => ({
   border: `1px solid ${theme.palette.border.main}`,
   borderRadius: "5px",
@@ -51,8 +72,3 @@ export const WatchListCardContainer = styled("div")(({ theme }) => ({
     color: "#000000",
   },
 }));
-
-
-
-
-
