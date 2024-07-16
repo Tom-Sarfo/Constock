@@ -47,6 +47,7 @@ const columns = [
           )
         }
         label={`${value.percentage}%`}
+        small
       />
     ),
   },

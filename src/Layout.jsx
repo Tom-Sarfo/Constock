@@ -1,6 +1,7 @@
 import SideNavigation from "./Layouts/SideNavigation";
 import Box from "@mui/material/Box";
 import MainLayout from "./Layouts/MainLayout";
+import SidePanel from "./Layouts/SidePanel";
 export default function Layout() {
   return (
     <div className="layout">
@@ -28,9 +29,16 @@ export default function Layout() {
         </>
       </Box>
       <Box
-        sx={{ borderLeft: 1, borderColor: "border" }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          paddingTop: "25px"
+        }}
         className="asideBox"
-      ></Box>
+      >
+        <SidePanel />
+      </Box>
     </div>
   );
 }
