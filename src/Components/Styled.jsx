@@ -72,3 +72,4 @@ export const WatchListCardContainer = styled("div")(({ theme }) => ({
     color: "#000000",
   },
 }));
+

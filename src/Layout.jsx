@@ -2,6 +2,7 @@ import SideNavigation from "./Layouts/SideNavigation";
 import Box from "@mui/material/Box";
 import MainLayout from "./Layouts/MainLayout";
 import SidePanel from "./Layouts/SidePanel";
+import TopNavigation from "./Layouts/TopNavigation";
 export default function Layout() {
   return (
     <div className="layout">
@@ -9,7 +10,11 @@ export default function Layout() {
         sx={{ borderBottom: 1, borderColor: "border" }}
         className="topNavbar"
       >
-        Top navigation goes here...
+        <TopNavigation
+          badgeContent={17}
+          userName="Kabute Grace"
+          userAvatar=""
+        />
       </Box>
       <Box
         sx={{
@@ -33,7 +38,7 @@ export default function Layout() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          paddingTop: "25px"
+          paddingTop: "25px",
         }}
         className="asideBox"
       >
