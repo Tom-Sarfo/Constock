@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AssetAvatar from "./AssetAvatar";
 import { Status } from "./Styled";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
 
@@ -38,10 +38,20 @@ function AssetCard({ assetData }) {
         <p>${assetData.price}</p>
         <Status
           small
-          statusColor="#37AEB1"
-          rateColor="rgb(55, 174, 177, 0.28)"
+          statusColor={assetData.rate ? "#37AEB1" : "#AD2828"}
+          rateColor={
+            assetData.rate
+              ? "rgb(55, 174, 177, 0.28)"
+              : "rgb(173, 40, 40, 0.22)"
+          }
           label="0.4%"
-          icon={<FontAwesomeIcon icon={faArrowUp} color="#37AEB1" />}
+          icon={
+            assetData.rate ? (
+              <FontAwesomeIcon icon={faArrowUp} color="#37AEB1" />
+            ) : (
+              <FontAwesomeIcon icon={faArrowDown} color="#AD2828" />
+            )
+          }
         />
       </div>
       <Button

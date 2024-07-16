@@ -13,7 +13,7 @@ function InputField({ icon, placeholder }) {
           display: "flex",
           alignItems: "center",
           width: "281px",
-          height: "43px",
+          height: "32px",
           backgroundColor: "transparent",
           boxShadow: "none",
           border: "1px solid #CCCCCC",
@@ -30,7 +30,7 @@ function InputField({ icon, placeholder }) {
           size="small"
         />
         {icon && (
-          <IconButton type="button" sx={{ p: "10px" }} aria-label="icon">
+          <IconButton type="button" sx={{ p: "10px" }} aria-label="icon" size="small">
             {icon}
           </IconButton>
         )}
