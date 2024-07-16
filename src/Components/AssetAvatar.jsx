@@ -1,5 +1,4 @@
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
 import CardHeader from "@mui/material/CardHeader";
 
 import PropTypes from "prop-types";

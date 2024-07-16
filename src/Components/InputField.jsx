@@ -12,20 +12,22 @@ function InputField({ icon, placeholder }) {
           p: "2px 4px",
           display: "flex",
           alignItems: "center",
-          width: 300,
+          width: "281px",
+          height: "43px",
           backgroundColor: "transparent",
           boxShadow: "none",
           border: "1px solid #CCCCCC",
           borderRadius: "20px",
           paddingLeft: "10px",
           paddingRight: "4px",
-          color: "#CCCCCC"
+          color: "#CCCCCC",
         }}
       >
         <InputBase
           sx={{ ml: 1, flex: 1 }}
           placeholder={placeholder}
           inputProps={{ "aria-label": "search google maps" }}
+          size="small"
         />
         {icon && (
           <IconButton type="button" sx={{ p: "10px" }} aria-label="icon">
@@ -39,7 +41,7 @@ function InputField({ icon, placeholder }) {
 
 InputField.propTypes = {
   icon: PropTypes.object,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
 };
 
 export default InputField;

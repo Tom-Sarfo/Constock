@@ -5,6 +5,9 @@ export const theme = createTheme({
     primary: {
       main: "#7655FA",
     },
+    secondary: {
+      main: "#AD2828",
+    },
     border: {
       main: "#CCCCCC",
       light: "#e3f2fd",
@@ -14,11 +17,11 @@ export const theme = createTheme({
   spacing: 2,
   typography: {
     small: {
-      fontSize: '14px',
-      fontWeight: 'regular'
+      fontSize: "14px",
+      fontWeight: "regular",
     },
     medium: {
-      fontSize: '20px'
-    }
-  }
+      fontSize: "20px",
+    },
+  },
 });
