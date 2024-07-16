@@ -1,16 +1,9 @@
 import SideNavigation from "./Layouts/SideNavigation";
-import { Title } from "./Components/Styled";
 import Box from "@mui/material/Box";
-import WatchList from "./Layouts/WatchList";
-import { useRef, useState } from "react";
-import { scrollToWidth } from "./Utils/Constant";
-import ArrowScroll from "./Components/ArrowScroll";
+import MainLayout from "./Layouts/MainLayout";
+import SidePanel from "./Layouts/SidePanel";
 import TopNavigation from "./Layouts/TopNavigation";
-
 export default function Layout() {
-  const [scrollToPosition, setScrollToPosition] = useState(0);
-  const WatchListContainerRef = useRef();
-
   return (
     <div className="layout">
       <Box
@@ -18,9 +11,10 @@ export default function Layout() {
         className="topNavbar"
       >
         <TopNavigation
-        badgeContent={17} 
-        userName="Kabute Grace" 
-        userAvatar="" />
+          badgeContent={17}
+          userName="Kabute Grace"
+          userAvatar=""
+        />
       </Box>
       <Box
         sx={{
@@ -34,38 +28,21 @@ export default function Layout() {
         <SideNavigation />
       </Box>
 
-      <Box
-        className="mainBox"
-        sx={{
-          padding: "1.2rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-      >
+      <Box className="mainBox">
         <>
-          <div>
-            <Title label="Watch list" />
-          </div>
-
-          <WatchList
-            style={{ position: "relative" }}
-            innerRef={WatchListContainerRef}
-          />
-          <ArrowScroll
-            scrollHandler={() =>
-              scrollToWidth(
-                100,
-                scrollToPosition,
-                setScrollToPosition,
-                WatchListContainerRef
-              )
-            }
-          />
+          <MainLayout />
         </>
       </Box>
-      <Box sx={{ borderLeft: 1, borderColor: "border" }} className="asideBox">
-        Aside box goes here...
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          paddingTop: "25px",
+        }}
+        className="asideBox"
+      >
+        <SidePanel />
       </Box>
     </div>
   );

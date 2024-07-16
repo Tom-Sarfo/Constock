@@ -1,4 +1,4 @@
-import WatchListContainer from "../Components/WatchListContainer";
+import WatchListContainer from "./WatchListContainer";
 import PropTypes from "prop-types";
 
 function WatchList({ innerRef }) {

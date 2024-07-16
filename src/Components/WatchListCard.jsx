@@ -22,8 +22,9 @@ function WatchListCard({ percentage }) {
               },
             }}
             aria-label="recipe"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY7yOxPj3hD3DClETLuIrCGlKh0paAegikdA&s"
           >
-            B
+            O
           </Avatar>
         }
         action={
@@ -31,8 +32,8 @@ function WatchListCard({ percentage }) {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Black Sherif"
-        subheader="BSF"
+        title="Olivetheboy"
+        subheader="OTB"
         sx={{ padding: "0.8rem" }}
       />
       <div style={{ display: "flex", marginTop: "50px", gap: "20px" }}>
