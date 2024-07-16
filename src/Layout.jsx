@@ -60,9 +60,10 @@ export default function Layout() {
           />
         </>
       </Box>
-      <Box sx={{ borderLeft: 1, borderColor: "border" }} className="asideBox">
-        Aside box goes here...
-      </Box>
+      <Box
+        sx={{ borderLeft: 1, borderColor: "border" }}
+        className="asideBox"
+      ></Box>
     </div>
   );
 }
