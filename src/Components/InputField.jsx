@@ -3,7 +3,7 @@ import InputBase from "@mui/material/InputBase";
 import Paper from "@mui/material/Paper";
 import PropTypes from "prop-types";
 
-function InputField({ icon }) {
+function InputField({ icon, placeholder }) {
   return (
     <div>
       <Paper
@@ -24,7 +24,7 @@ function InputField({ icon }) {
       >
         <InputBase
           sx={{ ml: 1, flex: 1 }}
-          placeholder="Search Google Maps"
+          placeholder={placeholder}
           inputProps={{ "aria-label": "search google maps" }}
         />
         {icon && (
@@ -39,6 +39,7 @@ function InputField({ icon }) {
 
 InputField.propTypes = {
   icon: PropTypes.object,
+  placeholder: PropTypes.string
 };
 
 export default InputField;

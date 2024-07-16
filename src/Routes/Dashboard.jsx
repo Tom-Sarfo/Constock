@@ -7,7 +7,12 @@ import TableComponent from "../Components/TableComponent";
 import AssetAvatar from "../Components/AssetAvatar";
 import Button from "@mui/material/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowDown,
+  faArrowUp,
+  faFilter,
+} from "@fortawesome/free-solid-svg-icons";
+import InputField from "../Components/InputField";
 
 const columns = [
   {
@@ -168,7 +173,16 @@ function Dashboard() {
       />
 
       <div style={{ marginTop: "60px" }}>
-        <TableComponent columns={columns} rows={rows} />
+        <TableComponent
+          columns={columns}
+          rows={rows}
+          filterComponent={
+            <InputField
+              icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
+              placeholder="Filter Assets"
+            />
+          }
+        />
       </div>
     </div>
   );

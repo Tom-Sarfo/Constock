@@ -10,7 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import { Title } from "./Styled";
 import PropTypes from "prop-types";
 
-function TableComponent({ columns, rows }) {
+function TableComponent({ columns, rows, filterComponent }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -34,8 +34,8 @@ function TableComponent({ columns, rows }) {
               <TableCell align="left" colSpan={2}>
                 <Title label="My Assets" />
               </TableCell>
-              <TableCell align="center" colSpan={3}>
-                Search bar
+              <TableCell align="right" colSpan={2}>
+                {filterComponent}
               </TableCell>
             </TableRow>
             <TableRow>
@@ -86,6 +86,7 @@ function TableComponent({ columns, rows }) {
 TableComponent.propTypes = {
   columns: PropTypes.array.isRequired,
   rows: PropTypes.array.isRequired,
+  filterComponent: PropTypes.object
 };
 
 export default TableComponent;
