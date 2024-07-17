@@ -44,7 +44,7 @@ const TopNavigation = ({ badgeContent, userName, userAvatar }) => {
             color: "#707175",
           }}
         >
-          <Badge badgeContent={badgeContent} color="primary">
+          <Badge badgeContent={badgeContent} color="secondary">
             <NotificationsIcon sx={{ color: "#707175" }} />
           </Badge>
         </IconButton>

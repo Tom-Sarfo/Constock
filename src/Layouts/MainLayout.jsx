@@ -1,8 +1,8 @@
-import Dashboard from "../Routes/Dashboard";
+import { Outlet } from "react-router-dom";
 function MainLayout() {
   return (
     <div>
-      <Dashboard />
+      <Outlet />
     </div>
   );
 }

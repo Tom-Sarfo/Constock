@@ -5,8 +5,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import PropTypes from "prop-types";
 import { ActiveBar } from "./Styled";
+import { Link } from "react-router-dom";
 
-function MenuCard({ menuTitle, icon, styles, active, onClick }) {
+function MenuCard({ menuTitle, icon, styles, active, onClick , routeTo}) {
   return (
     <MenuList
       sx={styles}
@@ -30,7 +31,7 @@ function MenuCard({ menuTitle, icon, styles, active, onClick }) {
         <ListItemIcon>
           <FontAwesomeIcon icon={icon} size="sm" />
         </ListItemIcon>
-        <ListItemText>{menuTitle}</ListItemText>
+        <ListItemText><Link to={routeTo} style={{textDecoration: 'none', color: '#9E9E9E'}}>{menuTitle}</Link></ListItemText>
       </MenuItem>
     </MenuList>
   );
@@ -42,6 +43,7 @@ MenuCard.propTypes = {
   styles: PropTypes.object,
   active: PropTypes.bool.isRequired,
   onClick: PropTypes,
+  routeTo: PropTypes.string
 };
 
 export default MenuCard;

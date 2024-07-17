@@ -52,7 +52,7 @@ export default function SideNavigation() {
             size="lg"
           />
         </WalletCard>
-      </Box> 
+      </Box>
       <Box
         sx={{
           borderBottom: 1,
@@ -66,18 +66,21 @@ export default function SideNavigation() {
           icon={faHome}
           active={activeMenu === "Dashboard"}
           onClick={() => handleMenuClick("Dashboard")}
+          routeTo="/dashboard"
         />
         <MenuCard
           menuTitle="Wallet"
           icon={faWallet}
           active={activeMenu === "Wallet"}
           onClick={() => handleMenuClick("Wallet")}
+          routeTo="/wallet"
         />
         <MenuCard
           menuTitle="Constock Market"
           icon={faChartSimple}
           active={activeMenu === "Constock Market"}
           onClick={() => handleMenuClick("Constock Market")}
+          routeTo="/market"
         />
       </Box>
       <Box
@@ -93,6 +96,7 @@ export default function SideNavigation() {
           icon={faSackDollar}
           active={activeMenu === "Float Constock"}
           onClick={() => handleMenuClick("Float Constock")}
+          routeTo="/float-constock"
         />
       </Box>
       <Box sx={{ paddingTop: "20px" }}>
@@ -101,6 +105,7 @@ export default function SideNavigation() {
           icon={faGear}
           active={activeMenu === "Setting"}
           onClick={() => handleMenuClick("Setting")}
+          routeTo="/settings"
         />
       </Box>
     </Container>
