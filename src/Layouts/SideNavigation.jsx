@@ -82,7 +82,7 @@ export default function SideNavigation() {
       </Box>
       <Box
         sx={{
-          height: "500px",
+          height: "450px",
           borderBottom: 1,
           borderColor: "border",
           paddingTop: "20px",

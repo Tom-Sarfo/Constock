@@ -26,9 +26,10 @@ function TableComponent({ columns, rows, filterComponent }) {
   return (
     <Paper
       sx={{ width: "100%", boxShadow: "none", border: "1px solid #CCCCCC" }}
+      
     >
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
+      <TableContainer sx={{ maxHeight: 440, }} id="scrollbar">
+        <Table stickyHeader aria-label="sticky table" sx={{}}>
           <TableHead>
             <TableRow>
               <TableCell align="left" colSpan={2}>
