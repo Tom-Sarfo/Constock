@@ -105,10 +105,11 @@ function Dashboard() {
         }
       />
 
-      <div style={{ marginTop: "60px" }}>
+      <div style={{ marginTop: "32px" }}>
         <TableComponent
           columns={columns}
           rows={myAsset}
+          maxHeight="50vh"
           filterComponent={
             <InputField
               icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}

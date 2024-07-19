@@ -31,10 +31,11 @@ function TableComponent({
 
   return (
     <Paper
-      sx={{ width: "100%", boxShadow: "none", border: "1px solid #CCCCCC" }}
+      sx={{ boxShadow: "none", border: "1px solid #CCCCCC", width: "1115px" }}
+      elevation={2}
     >
       <TableContainer
-        sx={{ maxHeight: maxHeight ? maxHeight : 440 }}
+        sx={{ maxHeight: maxHeight ? maxHeight : "60vh" }}
         id="scrollbar"
       >
         <Table stickyHeader aria-label="sticky table">

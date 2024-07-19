@@ -10,7 +10,7 @@ import {
 import Button from "@mui/material/Button";
 import { marketAssets } from "../Utils/Data";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import { Paper } from "@mui/material";
+// import { Paper } from "@mui/material";
 import InputField from "../Components/InputField";
 import EmptyTableState from "../Components/EmptyTableState";
 
@@ -81,7 +81,7 @@ function ConstockMarket() {
   return (
     <div style={{ padding: "1rem" }}>
       <Title label="Constock Market" style={{ marginBottom: "20px" }} />
-      <Paper elevation={2} sx={{ width: "1115px" }}>
+      {/* <Paper  sx={{  }}> */}
         <TableComponent
           rows={marketAssets}
           columns={columns}
@@ -94,7 +94,7 @@ function ConstockMarket() {
           }
           isEmptyState={!marketAssets.length ? <EmptyTableState /> : null}
         />
-      </Paper>
+      {/* </Paper> */}
     </div>
   );
 }
