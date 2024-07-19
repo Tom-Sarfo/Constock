@@ -10,7 +10,13 @@ import TableRow from "@mui/material/TableRow";
 import { Title } from "./Styled";
 import PropTypes from "prop-types";
 
-function TableComponent({ columns, rows, filterComponent, maxHeight }) {
+function TableComponent({
+  columns,
+  rows,
+  filterComponent,
+  maxHeight,
+  isEmptyState,
+}) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -31,7 +37,7 @@ function TableComponent({ columns, rows, filterComponent, maxHeight }) {
         sx={{ maxHeight: maxHeight ? maxHeight : 440 }}
         id="scrollbar"
       >
-        <Table stickyHeader aria-label="sticky table" sx={{}}>
+        <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               <TableCell align="left" colSpan={2}>
@@ -41,47 +47,60 @@ function TableComponent({ columns, rows, filterComponent, maxHeight }) {
                 {filterComponent}
               </TableCell>
             </TableRow>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ top: 57, minWidth: column.minWidth }}
-                >
-                  <Title label={column.label} sx={{ fontSize: "14px" }} />
-                </TableCell>
-              ))}
-            </TableRow>
+            {!isEmptyState && (
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ top: 57, minWidth: column.minWidth }}
+                  >
+                    <Title label={column.label} sx={{ fontSize: "14px" }} />
+                  </TableCell>
+                ))}
+              </TableRow>
+            )}
           </TableHead>
-          <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format ? column.format(value) : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
+          {!isEmptyState ? (
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => {
+                  return (
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={row.code}
+                    >
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format ? column.format(value) : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
+          ) : (
+            isEmptyState
+          )}
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+      {!isEmptyState && (
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      )}
     </Paper>
   );
 }
@@ -91,6 +110,7 @@ TableComponent.propTypes = {
   rows: PropTypes.array.isRequired,
   filterComponent: PropTypes.object,
   maxHeight: PropTypes.number,
+  isEmptyState: PropTypes.object,
 };
 
 export default TableComponent;

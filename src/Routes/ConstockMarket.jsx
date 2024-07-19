@@ -2,12 +2,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AssetAvatar from "../Components/AssetAvatar";
 import { Status, Title } from "../Components/Styled";
 import TableComponent from "../Components/TableComponent";
-import { faArrowDown, faArrowUp, faFilter } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowDown,
+  faArrowUp,
+  faFilter,
+} from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import { marketAssets } from "../Utils/Data";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import { Paper } from "@mui/material";
 import InputField from "../Components/InputField";
+import EmptyTableState from "../Components/EmptyTableState";
 
 function ConstockMarket() {
   const columns = [
@@ -87,6 +92,7 @@ function ConstockMarket() {
               placeholder="Filter Assets"
             />
           }
+          isEmptyState={!marketAssets.length ? <EmptyTableState /> : null}
         />
       </Paper>
     </div>
