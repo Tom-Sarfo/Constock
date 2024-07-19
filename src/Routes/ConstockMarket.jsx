@@ -2,11 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AssetAvatar from "../Components/AssetAvatar";
 import { Status, Title } from "../Components/Styled";
 import TableComponent from "../Components/TableComponent";
-import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faArrowUp, faFilter } from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import { marketAssets } from "../Utils/Data";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import { Paper } from "@mui/material";
+import InputField from "../Components/InputField";
 
 function ConstockMarket() {
   const columns = [
@@ -76,7 +77,17 @@ function ConstockMarket() {
     <div style={{ padding: "1rem" }}>
       <Title label="Constock Market" style={{ marginBottom: "20px" }} />
       <Paper elevation={2} sx={{ width: "1115px" }}>
-        <TableComponent rows={marketAssets} columns={columns} maxHeight={750} />
+        <TableComponent
+          rows={marketAssets}
+          columns={columns}
+          maxHeight={750}
+          filterComponent={
+            <InputField
+              icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
+              placeholder="Filter Assets"
+            />
+          }
+        />
       </Paper>
     </div>
   );
