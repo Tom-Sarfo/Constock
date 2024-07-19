@@ -11,7 +11,6 @@ function AssetCard({ assetData }) {
       style={{
         display: "flex",
         width: "420px",
-        // height: "78px",
         alignItems: "center",
         border: "1px solid #CCCCCC",
         borderLeft: "none",

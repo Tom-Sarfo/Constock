@@ -13,6 +13,7 @@ import {
   faFilter,
 } from "@fortawesome/free-solid-svg-icons";
 import InputField from "../Components/InputField";
+import { myAsset } from "../Utils/Data";
 
 const columns = [
   {
@@ -59,11 +60,11 @@ const columns = [
       <Button
         variant="outlined"
         size="small"
-        color="primary"
+        color="secondary"
         sx={{
           textTransform: "capitalize",
           "&:hover": {
-            bgcolor: "#7655FA",
+            bgcolor: "#AD2828",
             color: "#FFFFFF",
           },
         }}
@@ -71,75 +72,6 @@ const columns = [
         {value}
       </Button>
     ),
-  },
-];
-
-const rows = [
-  {
-    asset: {
-      name: "Kwadwo Sheldon Std.",
-      initials: "KSS",
-      imgUrl:
-        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
-    },
-    price: "$25",
-    priceChange: { rate: true, percentage: 1.6 },
-    action: "sell",
-  },
-  {
-    asset: {
-      name: "Kwadwo Sheldon Std.",
-      initials: "KSS",
-      imgUrl:
-        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
-    },
-    price: "$25",
-    priceChange: { rate: false, percentage: 1.6 },
-    action: "sell",
-  },
-  {
-    asset: {
-      name: "Kwadwo Sheldon Std.",
-      initials: "KSS",
-      imgUrl:
-        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
-    },
-    price: "$25",
-    priceChange: { rate: true, percentage: 1.6 },
-    action: "sell",
-  },
-  {
-    asset: {
-      name: "Kwadwo Sheldon Std.",
-      initials: "KSS",
-      imgUrl:
-        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
-    },
-    price: "$25",
-    priceChange: { rate: false, percentage: 1.6 },
-    action: "sell",
-  },
-  {
-    asset: {
-      name: "Kwadwo Sheldon Std.",
-      initials: "KSS",
-      imgUrl:
-        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
-    },
-    price: "$25",
-    priceChange: { rate: true, percentage: 1.6 },
-    action: "sell",
-  },
-  {
-    asset: {
-      name: "Kwadwo Sheldon Std.",
-      initials: "KSS",
-      imgUrl:
-        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
-    },
-    price: "$25",
-    priceChange: { rate: true, percentage: 1.6 },
-    action: "sell",
   },
 ];
 
@@ -176,7 +108,7 @@ function Dashboard() {
       <div style={{ marginTop: "60px" }}>
         <TableComponent
           columns={columns}
-          rows={rows}
+          rows={myAsset}
           filterComponent={
             <InputField
               icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
