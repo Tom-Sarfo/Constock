@@ -4,7 +4,7 @@ import InputField from "../Components/InputField";
 import { Title } from "../Components/Styled";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "@mui/material";
-import { cardData } from "../Utils/Cardata";
+import { cardData } from "../Utils/Data";
 
 function SidePanel() {
   return (

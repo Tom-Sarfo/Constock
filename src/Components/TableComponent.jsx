@@ -10,7 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import { Title } from "./Styled";
 import PropTypes from "prop-types";
 
-function TableComponent({ columns, rows, filterComponent }) {
+function TableComponent({ columns, rows, filterComponent, maxHeight }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -26,9 +26,11 @@ function TableComponent({ columns, rows, filterComponent }) {
   return (
     <Paper
       sx={{ width: "100%", boxShadow: "none", border: "1px solid #CCCCCC" }}
-      
     >
-      <TableContainer sx={{ maxHeight: 440, }} id="scrollbar">
+      <TableContainer
+        sx={{ maxHeight: maxHeight ? maxHeight : 440 }}
+        id="scrollbar"
+      >
         <Table stickyHeader aria-label="sticky table" sx={{}}>
           <TableHead>
             <TableRow>
@@ -87,7 +89,8 @@ function TableComponent({ columns, rows, filterComponent }) {
 TableComponent.propTypes = {
   columns: PropTypes.array.isRequired,
   rows: PropTypes.array.isRequired,
-  filterComponent: PropTypes.object
+  filterComponent: PropTypes.object,
+  maxHeight: PropTypes.number,
 };
 
 export default TableComponent;
