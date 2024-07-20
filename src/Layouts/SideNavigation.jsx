@@ -66,7 +66,7 @@ export default function SideNavigation() {
           icon={faHome}
           active={activeMenu === "Dashboard"}
           onClick={() => handleMenuClick("Dashboard")}
-          routeTo="/dashboard"
+          routeTo="/"
         />
         <MenuCard
           menuTitle="Wallet"
