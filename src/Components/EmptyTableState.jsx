@@ -12,7 +12,7 @@ function EmptyTableState() {
         justifyContent: "center",
         alignItems: "center",
         placeItems: "center",
-        height: "58.5vh",
+        height: "50vh",
         marginLeft: "370px",
       }}
     >

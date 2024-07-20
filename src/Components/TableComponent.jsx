@@ -11,6 +11,7 @@ import { Title } from "./Styled";
 import PropTypes from "prop-types";
 
 function TableComponent({
+  title,
   columns,
   rows,
   filterComponent,
@@ -31,17 +32,18 @@ function TableComponent({
 
   return (
     <Paper
-      sx={{ width: "100%", boxShadow: "none", border: "1px solid #CCCCCC" }}
+      sx={{ boxShadow: "none", border: "1px solid #CCCCCC", width: "1115px" }}
+      elevation={2}
     >
       <TableContainer
-        sx={{ maxHeight: maxHeight ? maxHeight : 440 }}
+        sx={{ maxHeight: maxHeight ? maxHeight : "60vh" }}
         id="scrollbar"
       >
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               <TableCell align="left" colSpan={2}>
-                <Title label="My Assets" />
+                <Title label={title} />
               </TableCell>
               <TableCell align="right" colSpan={2}>
                 {filterComponent}
@@ -111,6 +113,7 @@ TableComponent.propTypes = {
   filterComponent: PropTypes.object,
   maxHeight: PropTypes.number,
   isEmptyState: PropTypes.object,
+  title: PropTypes.string.isRequired
 };
 
 export default TableComponent;

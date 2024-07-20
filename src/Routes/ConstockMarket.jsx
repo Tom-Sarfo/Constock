@@ -10,7 +10,7 @@ import {
 import Button from "@mui/material/Button";
 import { marketAssets } from "../Utils/Data";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import { Paper } from "@mui/material";
+// import { Paper } from "@mui/material";
 import InputField from "../Components/InputField";
 import EmptyTableState from "../Components/EmptyTableState";
 
@@ -81,20 +81,19 @@ function ConstockMarket() {
   return (
     <div style={{ padding: "1rem" }}>
       <Title label="Constock Market" style={{ marginBottom: "20px" }} />
-      <Paper elevation={2} sx={{ width: "1115px" }}>
-        <TableComponent
-          rows={marketAssets}
-          columns={columns}
-          maxHeight={750}
-          filterComponent={
-            <InputField
-              icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
-              placeholder="Filter Assets"
-            />
-          }
-          isEmptyState={!marketAssets.length ? <EmptyTableState /> : null}
-        />
-      </Paper>
+      <TableComponent
+        title="Floating constock"
+        rows={marketAssets}
+        columns={columns}
+        maxHeight={750}
+        filterComponent={
+          <InputField
+            icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
+            placeholder="Filter Assets"
+          />
+        }
+        isEmptyState={!marketAssets.length ? <EmptyTableState /> : null}
+      />
     </div>
   );
 }

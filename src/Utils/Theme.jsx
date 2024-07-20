@@ -13,6 +13,9 @@ export const theme = createTheme({
       light: "#e3f2fd",
       dark: "#2D3134",
     },
+    success: {
+      main: "#37AEB1",
+    },
   },
   spacing: 2,
   typography: {
