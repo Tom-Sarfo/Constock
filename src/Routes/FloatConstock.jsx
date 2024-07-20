@@ -1,20 +1,17 @@
-import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import { Status, Title } from "../Components/Styled";
 import TableComponent from "../Components/TableComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowDown,
-  faArrowUp,
-  faFilter,
-  faSackDollar,
-} from "@fortawesome/free-solid-svg-icons";
+import { faFilter, faSackDollar } from "@fortawesome/free-solid-svg-icons";
 import AssetAvatar from "../Components/AssetAvatar";
 import EmptyTableState from "../Components/EmptyTableState";
 import InputField from "../Components/InputField";
+import { floatedConstock } from "../Utils/Data";
+import LinearProgress from "@mui/material/LinearProgress";
+import { strikePercentage } from "../Utils/Constant";
 
 function FloatConstock() {
-  const floatedConstock = [];
+  console.log("percentage: ", strikePercentage(1000, 2000));
   const columns = [
     {
       id: "asset",
@@ -32,54 +29,52 @@ function FloatConstock() {
     },
     { id: "price", label: "Price", minWidth: 100, align: "center" },
     {
-      id: "priceChange",
-      label: "Price Change",
+      id: "fundRaised",
+      label: "Fund Raised",
       minWidth: 170,
       align: "center",
       format: (value) => (
-        <Status
-          statusColor={value.rate ? "#37AEB1" : "#AD2828"}
-          rateColor={
-            value.rate ? "rgb(55, 174, 177, 0.28)" : "rgb(173, 40, 40, 0.22)"
-          }
-          icon={
-            value.rate ? (
-              <FontAwesomeIcon icon={faArrowUp} color="#37AEB1" />
-            ) : (
-              <FontAwesomeIcon icon={faArrowDown} color="#AD2828" />
-            )
-          }
-          label={`${value.percentage}%`}
-          small
-        />
+        <center>
+          <div>
+            <p>${value.actual}</p>
+            <LinearProgress
+              variant="determinate"
+              value={strikePercentage(value.actual, value.expected)}
+              sx={{
+                width: "104px",
+                borderRadius: "10px",
+                bgcolor: "#D9D9D9",
+              }}
+              color={value.active ? "success" : "secondary"}
+            />
+          </div>
+        </center>
       ),
     },
     {
-      id: "action",
-      label: "Action",
+      id: "status",
+      label: "Status",
       minWidth: 100,
       format: (value) => (
-        <Button
-          variant="outlined"
-          size="small"
-          color={value ? "secondary" : "primary"}
-          sx={{
-            textTransform: "capitalize",
-            "&:hover": {
-              bgcolor: value ? "#AD2828" : "#7655FA",
-              color: "#FFFFFF",
-            },
-          }}
-        >
-          {value ? "Sell" : "Buy"}
-        </Button>
+        <Status
+          statusColor={
+            value === "Issued"
+              ? "rgb(55, 174, 177, 0.28)"
+              : value === "Withdrawn"
+              ? "rgb(173, 40, 40, 0.22)"
+              : "rgb(220, 212, 26, 0.16)"
+          }
+          label={value}
+          medium
+          sx={{ color: "#707175" }}
+        />
       ),
     },
   ];
 
   return (
     <div style={{ padding: "1rem" }}>
-      <Title label="Float Constock" />
+      <Title label="My Constocks" />
 
       <div
         style={{
@@ -90,7 +85,7 @@ function FloatConstock() {
           gap: "20px",
         }}
       >
-        {!floatedConstock ? (
+        {floatedConstock.length ? (
           <Button
             variant="contained"
             startIcon={
@@ -103,7 +98,7 @@ function FloatConstock() {
               paddingTop: "4px",
               paddingBottom: "4px",
               fontSize: "20px",
-              width: "200px",
+              width: "220px",
               marginLeft: "auto",
               justifyContent: "flex-end",
               "&:hover": {
@@ -112,22 +107,22 @@ function FloatConstock() {
             }}
             size="large"
           >
-            Issue stock
+            Float constock
           </Button>
         ) : null}
 
-        {/* <Paper elevation={2}> */}
-          <TableComponent
-            columns={columns}
-            isEmptyState={!floatedConstock.length ? <EmptyTableState /> : null}
-            filterComponent={
-              <InputField
-                icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
-                placeholder="Filter Assets"
-              />
-            }
-          />
-        {/* </Paper> */}
+        <TableComponent
+          title="Issued Constock"
+          rows={floatedConstock}
+          columns={columns}
+          isEmptyState={!floatedConstock.length ? <EmptyTableState /> : null}
+          filterComponent={
+            <InputField
+              icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
+              placeholder="Filter Constock"
+            />
+          }
+        />
       </div>
     </div>
   );

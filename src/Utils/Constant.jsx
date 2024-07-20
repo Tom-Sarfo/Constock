@@ -11,3 +11,7 @@ export const scrollToWidth = (
   console.log("pos: ", typeof containerRef);
 };
 
+export const strikePercentage = (part, whole) => {
+  const result = (part / whole) * 100;
+  return result;
+};

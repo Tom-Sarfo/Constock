@@ -220,3 +220,39 @@ export const cardData = [
     rate: false,
   },
 ];
+
+export const floatedConstock = [
+  {
+    asset: {
+      name: "Kwadwo Sheldon Std.",
+      initials: "KSS",
+      imgUrl:
+        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
+    },
+    price: "$25",
+    fundRaised: { actual: 25000, expected: 50000, active: true },
+    status: "In progress",
+  },
+  {
+    asset: {
+      name: "Kwadwo Sheldon Std.",
+      initials: "KSS",
+      imgUrl:
+        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
+    },
+    price: "$29",
+    fundRaised: { actual: 70000, expected: 70000, active: true },
+    status: "Issued",
+  },
+  {
+    asset: {
+      name: "Kwadwo Sheldon Std.",
+      initials: "KSS",
+      imgUrl:
+        "https://yt3.googleusercontent.com/JlVj92hdKJkFwClEYYOKuy-ROhTbhROboV9jlTQ5KYfec9LBLBVYXh7XxzUvKv01XKWugc7Isw=s160-c-k-c0x00ffffff-no-rj",
+    },
+    price: "$22",
+    fundRaised: { actual: 11000.09, expected: 70000, active: false },
+    status: "Withdrawn",
+  },
+];

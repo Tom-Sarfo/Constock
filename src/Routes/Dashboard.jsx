@@ -107,6 +107,7 @@ function Dashboard() {
 
       <div style={{ marginTop: "32px" }}>
         <TableComponent
+          title="My Assets"
           columns={columns}
           rows={myAsset}
           maxHeight="50vh"

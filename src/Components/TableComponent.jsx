@@ -11,6 +11,7 @@ import { Title } from "./Styled";
 import PropTypes from "prop-types";
 
 function TableComponent({
+  title,
   columns,
   rows,
   filterComponent,
@@ -42,7 +43,7 @@ function TableComponent({
           <TableHead>
             <TableRow>
               <TableCell align="left" colSpan={2}>
-                <Title label="My Assets" />
+                <Title label={title} />
               </TableCell>
               <TableCell align="right" colSpan={2}>
                 {filterComponent}
@@ -112,6 +113,7 @@ TableComponent.propTypes = {
   filterComponent: PropTypes.object,
   maxHeight: PropTypes.number,
   isEmptyState: PropTypes.object,
+  title: PropTypes.string.isRequired
 };
 
 export default TableComponent;

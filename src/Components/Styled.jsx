@@ -54,7 +54,7 @@ export const Status = styled(Chip, {
   borderColor: rateColor && statusColor,
   border: rateColor && `2px solid ${statusColor}`,
   padding: large ? "0.6rem" : small ? "0.2rem" : "0.4rem",
-  fontSize: large ? 26 : small ? 10 : 16,
+  fontSize: large ? 26 : small ? 10 : 12,
   color: statusColor ? statusColor : "#FFFFFF",
   width: small && 66,
   height: small && 21,

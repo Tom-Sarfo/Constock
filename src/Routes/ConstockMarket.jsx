@@ -81,20 +81,19 @@ function ConstockMarket() {
   return (
     <div style={{ padding: "1rem" }}>
       <Title label="Constock Market" style={{ marginBottom: "20px" }} />
-      {/* <Paper  sx={{  }}> */}
-        <TableComponent
-          rows={marketAssets}
-          columns={columns}
-          maxHeight={750}
-          filterComponent={
-            <InputField
-              icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
-              placeholder="Filter Assets"
-            />
-          }
-          isEmptyState={!marketAssets.length ? <EmptyTableState /> : null}
-        />
-      {/* </Paper> */}
+      <TableComponent
+        title="Floating constock"
+        rows={marketAssets}
+        columns={columns}
+        maxHeight={750}
+        filterComponent={
+          <InputField
+            icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
+            placeholder="Filter Assets"
+          />
+        }
+        isEmptyState={!marketAssets.length ? <EmptyTableState /> : null}
+      />
     </div>
   );
 }
