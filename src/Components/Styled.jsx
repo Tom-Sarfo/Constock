@@ -3,13 +3,16 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import { Chip } from "@mui/material";
 
-export const WalletCard = styled(Card)(({ theme }) => ({
+export const WalletCard = styled(Card, {
+  shouldForwardProp: (prop) => prop !== "medium",
+})(({ medium, theme }) => ({
   display: "flex",
-  alignItems: "center",
-  gap: "50px",
-  backgroundColor: theme.palette.primary.main,
-  height: 87,
-  width: 241,
+  alignItems: medium ? "" : "center",
+  gap: medium ? "" : "50px",
+  backgroundColor: medium ? "" : theme.palette.primary.main,
+  height: medium ? 215 : 87,
+  width: medium ? 359 : 241,
+  borderRadius: "",
 }));
 
 export const ActiveBar = styled("div", {
@@ -72,4 +75,3 @@ export const WatchListCardContainer = styled("div")(({ theme }) => ({
     color: "#000000",
   },
 }));
-
