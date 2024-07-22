@@ -1,131 +1,119 @@
-import Button from "@mui/material/Button";
-import { Status, Title, WalletCard } from "../Components/Styled";
+import { Status, Title } from "../Components/Styled";
 import TableComponent from "../Components/TableComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter, faSackDollar } from "@fortawesome/free-solid-svg-icons";
-import AssetAvatar from "../Components/AssetAvatar";
-import EmptyTableState from "../Components/EmptyTableState";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import InputField from "../Components/InputField";
-import { floatedConstock } from "../Utils/Data";
-import LinearProgress from "@mui/material/LinearProgress";
-import { strikePercentage } from "../Utils/Constant";
+import { transactions } from "../Utils/Data";
+
 import BalanceCard from "../Components/BalanceCard";
 
 function Wallet() {
-  // const columns = [
-  //   {
-  //     id: "asset",
-  //     label: "Constock",
-  //     minWidth: 220,
-  //     format: (value) => (
-  //       <div style={{ display: "flex", alignItems: "center" }}>
-  //         <AssetAvatar
-  //           assetName={value.name}
-  //           initials={value.initials}
-  //           imgUrl={value.imgUrl}
-  //         />
-  //       </div>
-  //     ),
-  //   },
-  //   { id: "price", label: "Price", minWidth: 100, align: "center" },
-  //   {
-  //     id: "fundRaised",
-  //     label: "Fund Raised",
-  //     minWidth: 170,
-  //     align: "center",
-  //     format: (value) => (
-  //       <center>
-  //         <div>
-  //           <p>${value.actual}</p>
-  //           <LinearProgress
-  //             variant="determinate"
-  //             value={strikePercentage(value.actual, value.expected)}
-  //             sx={{
-  //               width: "104px",
-  //               borderRadius: "10px",
-  //               bgcolor: "#D9D9D9",
-  //             }}
-  //             color={value.active ? "success" : "secondary"}
-  //           />
-  //         </div>
-  //       </center>
-  //     ),
-  //   },
-  //   {
-  //     id: "status",
-  //     label: "Status",
-  //     minWidth: 100,
-  //     format: (value) => (
-  //       <Status
-  //         statusColor={
-  //           value === "Issued"
-  //             ? "rgb(55, 174, 177, 0.28)"
-  //             : value === "Withdrawn"
-  //             ? "rgb(173, 40, 40, 0.22)"
-  //             : "rgb(220, 212, 26, 0.16)"
-  //         }
-  //         label={value}
-  //         medium
-  //         sx={{ color: "#707175" }}
-  //       />
-  //     ),
-  //   },
-  // ];
+  const columns = [
+    {
+      id: "transactionId",
+      label: "Transaction ID",
+      minWidth: 120,
+      align: "center",
+      format: (value) => <p style={{ fontWeight: "bold" }}>{value}</p>,
+    },
+    {
+      id: "type",
+      label: "Type",
+      minWidth: 100,
+      align: "center",
+      format: (value) => (
+        <Status
+          statusColor={
+            value === "Withdrawal"
+              ? "#AD2828"
+              : value === "Deposit"
+              ? "rgb(55, 174, 177, 0.28)"
+              : value === "Constock fee"
+              ? "#6255F5"
+              : "#37AEB1"
+          }
+          label={value}
+          medium
+          squared
+          outline
+        />
+      ),
+    },
+    {
+      id: "status",
+      label: "Status",
+      minWidth: 100,
+      align: "center",
+      format: (value) => (
+        <Status
+          statusColor={
+            value === "Completed"
+              ? "rgb(55, 174, 177, 0.28)"
+              : value === "Pending"
+              ? "rgb(173, 40, 40, 0.22)"
+              : "rgb(220, 212, 26, 0.16)"
+          }
+          label={value}
+          sx={{
+            color:
+              value === "Completed"
+                ? "#37AEB1"
+                : value === "Pending"
+                ? "#AD2828"
+                : "#6255F5",
+          }}
+        />
+      ),
+    },
+    {
+      id: "amount",
+      label: "Amount",
+      minWidth: 170,
+      align: "center",
+      format: (value) => value,
+    },
+    {
+      id: "date",
+      label: "Date",
+      minWidth: 170,
+      align: "center",
+      format: (value) => value,
+    },
+  ];
 
   return (
-    <div style={{ padding: "1rem" }}>
-      <Title label="My Wallet" />
-
-      <BalanceCard />
-
-      {/* <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "1115px",
-          marginTop: "1rem",
-          gap: "20px",
-        }}
-      >
-        {floatedConstock.length ? (
-          <Button
-            variant="contained"
-            startIcon={
-              <FontAwesomeIcon icon={faSackDollar} color="#ffffff" size="sm" />
-            }
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              textTransform: "capitalize",
-              paddingTop: "4px",
-              paddingBottom: "4px",
-              fontSize: "20px",
-              width: "220px",
-              marginLeft: "auto",
-              justifyContent: "flex-end",
-              "&:hover": {
-                bgcolor: "#7655FA",
-              },
-            }}
-            size="large"
-          >
-            Float constock
-          </Button>
-        ) : null}
-
-        <TableComponent
-          title="Issued Constock"
-          rows={floatedConstock}
-          columns={columns}
-          isEmptyState={!floatedConstock.length ? <EmptyTableState /> : null}
-          filterComponent={
-            <InputField
-              icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
-              placeholder="Filter Constock"
-            />
-          }
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        paddingLeft: "1rem",
+        gap: "40px",
+      }}
+    >
+      <Title label="My Wallet" sx={{ width: "146px", marginTop: "1rem" }} />
+      <div style={{ display: "flex", gap: "40px", marginTop: "-3rem" }}>
+        <BalanceCard cardTitle="Fund balance" cardFigure="30000" />
+        <BalanceCard
+          cardTitle="Investment"
+          cardFigure="20000"
+          cardAction="Cash out"
+          smallText="2% more than last month"
+          oneAction
         />
-      </div> */}
+      </div>
+
+      <TableComponent
+        title="Transactions"
+        rows={transactions}
+        columns={columns}
+        filterComponent={
+          <InputField
+            icon={<FontAwesomeIcon icon={faFilter} color="#CCCCCC" />}
+            placeholder="Filter Transactions"
+          />
+        }
+      />
     </div>
   );
 }
