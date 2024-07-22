@@ -256,3 +256,37 @@ export const floatedConstock = [
     status: "Withdrawn",
   },
 ];
+
+
+
+export const transactions = [
+  {
+    transactionId: "01fu233j4i3hd7e4n4j3",
+    type: "Withdrawal",
+    status: "Pending",
+    amount: 54.89,
+    date: "01 July, 2024"
+  },
+  {
+    transactionId: "01fu233j4i3hd7e4n4j3",
+    type: "Dividend",
+    status: "Completed",
+    amount: 54.89,
+    date: "01 July, 2024"
+  },
+  {
+    transactionId: "01fu233j4i3hd7e4n4j3",
+    type: "Constock fee",
+    status: "flagged",
+    amount: 54.89,
+    date: "01 July, 2024"
+  },
+  {
+    transactionId: "01fu233j4i3hd7e4n4j3",
+    type: "Deposit",
+    status: "Pending",
+    amount: 54.89,
+    date: "01 July, 2024"
+  },
+
+];

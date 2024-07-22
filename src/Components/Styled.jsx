@@ -3,13 +3,16 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import { Chip } from "@mui/material";
 
-export const WalletCard = styled(Card)(({ theme }) => ({
+export const WalletCard = styled(Card, {
+  shouldForwardProp: (prop) => prop !== "medium",
+})(({ medium, theme }) => ({
   display: "flex",
-  alignItems: "center",
-  gap: "50px",
-  backgroundColor: theme.palette.primary.main,
-  height: 87,
-  width: 241,
+  alignItems: medium ? "" : "center",
+  gap: medium ? "" : "50px",
+  backgroundColor: medium ? "" : theme.palette.primary.main,
+  height: medium ? 215 : 87,
+  width: medium ? 359 : 241,
+  borderRadius: "",
 }));
 
 export const ActiveBar = styled("div", {
@@ -48,11 +51,15 @@ export const Status = styled(Chip, {
     prop !== "small" &&
     prop !== "large",
 })(({ outline, squared, rateColor, statusColor, small, large }) => ({
-  backgroundColor: outline ? "" : rateColor ? rateColor : statusColor,
+  backgroundColor: outline ? "#FFFFFF" : rateColor ? rateColor : statusColor,
   fontWeight: "bold",
   borderRadius: squared ? 5 : "",
-  borderColor: rateColor && statusColor,
-  border: rateColor && `2px solid ${statusColor}`,
+  borderColor: rateColor ? statusColor : "",
+  border: outline
+    ? "2px solid #CCCCCC"
+    : rateColor
+    ? `2px solid ${statusColor}`
+    : "",
   padding: large ? "0.6rem" : small ? "0.2rem" : "0.4rem",
   fontSize: large ? 26 : small ? 10 : 12,
   color: statusColor ? statusColor : "#FFFFFF",
@@ -72,4 +79,3 @@ export const WatchListCardContainer = styled("div")(({ theme }) => ({
     color: "#000000",
   },
 }));
-

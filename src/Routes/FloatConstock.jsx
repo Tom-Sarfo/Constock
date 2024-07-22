@@ -11,7 +11,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { strikePercentage } from "../Utils/Constant";
 
 function FloatConstock() {
-  console.log("percentage: ", strikePercentage(1000, 2000));
+  
   const columns = [
     {
       id: "asset",
