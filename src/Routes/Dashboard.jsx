@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import InputField from "../Components/InputField";
 import { myAsset } from "../Utils/Data";
+import Drawer from "../Components/Drawer";
 
 const columns = [
   {
@@ -77,6 +78,7 @@ const columns = [
 
 function Dashboard() {
   const [scrollToPosition, setScrollToPosition] = useState(0);
+  const [isDrawerOpen, setIsDrawerOpen] = useState();
   const watchListContainerRef = useRef();
   return (
     <div
@@ -106,6 +108,13 @@ function Dashboard() {
       />
 
       <div style={{ marginTop: "32px" }}>
+        {/* remove this block */}
+        <button onClick={() => setIsDrawerOpen(true)}>Open Drawer</button>
+        <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+          <h2>Drawer Content</h2>
+          <p>This is the content inside the drawer!</p>
+        </Drawer>
+        {/* up to here */}
         <TableComponent
           title="My Assets"
           columns={columns}
