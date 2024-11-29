@@ -17,7 +17,7 @@ function MenuCard({ menuTitle, icon, styles, active, onClick , routeTo}) {
       }}
       onClick={onClick}
     >
-      <ActiveBar active={active} />
+      <ActiveBar active={active} style={{position: 'absolute'}}/>
       <MenuItem
         sx={{
           display: "flex",
