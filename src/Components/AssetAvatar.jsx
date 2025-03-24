@@ -8,7 +8,7 @@ function AssetAvatar({ imgUrl, assetName, initials, style }) {
     <CardHeader
       avatar={
         <Avatar
-          sx={{ bgcolor: "primary", style }}
+          sx={{ bgcolor: "primary", style}}
           variant="square"
           src={imgUrl && imgUrl}
           aria-label="Constock asset"

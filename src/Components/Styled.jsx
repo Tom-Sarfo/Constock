@@ -79,3 +79,75 @@ export const WatchListCardContainer = styled("div")(({ theme }) => ({
     color: "#000000",
   },
 }));
+
+export const NavContainer = styled('div')(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  height: '100%',
+  width: '430px',
+}));
+
+export const MobileNav = styled('div')(() => ({
+  height: '75px',
+  display: 'flex',
+  backgroundColor: '#D9D9D9'
+}));
+
+export const MobileTypography = styled(Typography)(() => ({
+  fontWeight: 'Bold',
+  fontSize: '26px',
+  fontHeight: '700',
+  lineHeight: '29.05px',
+  textAlign: 'left',
+  color: '#7655FA'
+}));
+
+export const CardButton = styled('div')(() => ({
+  padding: '8px 20px',
+  border: '4px, solid, #7655FA',
+  borderRadius: '15px',
+  fontSize: '24px',
+  fontWeight: '500',
+  lineHeight: '29.05px',
+  textAlign: 'left',
+
+}));
+
+export const ButtonContainer = styled('div')(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: '16px'
+}));
+
+export const ToggleSwitch = styled('div')(() => ({
+	width: '220px',
+	margin: '35px auto',
+	position: 'relative',
+	borderRadius: '30px',
+	background: '#fff'
+}));
+
+export const ToggleButton = styled('div')(() => ({
+	padding: '10px 40px',
+	cursor: 'pointer',
+	background: 'transparent',
+	border: '0',
+	outline: 'none',
+	position: 'relative',
+	textAlign: 'center'
+}));
+
+export const StockMarketButton = styled('div')(() => ({
+  width: "auto",
+  padding: "6px 11px",
+  top: "205px",
+  borderRadius: "15px",
+  border: "1px solid #D9D9D9",
+  fontSize: "12px",
+  fontWeight: "700",
+  lineHeight: "14.52px",
+  textAlign: "center",
+  color: "#7655FA"
+}));

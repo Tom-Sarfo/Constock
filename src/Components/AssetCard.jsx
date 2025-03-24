@@ -4,19 +4,25 @@ import { Status } from "./Styled";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
+import { useMediaQuery } from "@mui/material";
 
 function AssetCard({ assetData }) {
+    const isMobile = useMediaQuery("(max-width: 768px)");
+  
   return (
     <div
       style={{
         display: "flex",
-        width: "420px",
+        width: isMobile? "320px": "420px",
         alignItems: "center",
         border: "1px solid #CCCCCC",
         borderLeft: "none",
         borderRight: "none",
         justifyContent: "space-between",
-        paddingRight: "1.3rem",
+        paddingRight: "0.8rem",
+        backgroundColor: "#FFFFFF",
+        alignSelf: "center",
+        borderRadius: isMobile? "5px": "none"
       }}
     >
       <AssetAvatar
@@ -31,7 +37,8 @@ function AssetCard({ assetData }) {
           alignItems: "center",
           justifyContent: "space-between",
           paddingBottom: "1rem",
-          marginLeft: "-50px",
+          marginLeft: isMobile? "0": "-50px",
+          marginRight: "20px",
         }}
       >
         <p>${assetData.price}</p>

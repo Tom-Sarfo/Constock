@@ -61,13 +61,13 @@ export default function SideNavigation() {
           paddingTop: "20px",
         }}
       >
-        <MenuCard
-          menuTitle="Dashboard"
-          icon={faHome}
-          active={activeMenu === "Dashboard"}
-          onClick={() => handleMenuClick("Dashboard")}
-          routeTo="/"
-        />
+          <MenuCard
+            menuTitle="Dashboard"
+            icon={faHome}
+            active={activeMenu === "Dashboard"}
+            onClick={() => handleMenuClick("Dashboard")}
+            routeTo="/"
+          />
         <MenuCard
           menuTitle="Wallet"
           icon={faWallet}

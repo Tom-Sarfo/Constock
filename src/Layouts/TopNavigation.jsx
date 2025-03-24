@@ -1,7 +1,6 @@
 import { Avatar, Badge, Box, IconButton, Typography } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { NavContainer } from "../Components/NavContainer";
-import { WhiteTypography } from "../Components/Styled";
+import { NavContainer, WhiteTypography } from "../Components/Styled";
 import PropTypes from "prop-types";
 
 const TopNavigation = ({ badgeContent, userName, userAvatar }) => {
@@ -22,7 +21,7 @@ const TopNavigation = ({ badgeContent, userName, userAvatar }) => {
             color: "#000000",
           }}
           medium
-        >
+          >
           Constock
         </WhiteTypography>
       </Box>
